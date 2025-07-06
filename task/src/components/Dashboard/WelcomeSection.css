@@ -1,0 +1,103 @@
+/* src/components/Dashboard/WelcomeSection.css */
+
+.welcome-section {
+    background-color: #fff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.welcome-text h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0;
+}
+
+.taskstatus-wrapper {
+    width: 200px;
+}
+
+.status-title {
+    margin-bottom: 8px;
+    font-size: 1em;
+    color: #444;
+    text-align: center;
+}
+
+.status-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: conic-gradient(#e0e0e0 0%, #e0e0e0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.inner-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7em;
+    font-weight: bold;
+    color: #333;
+    position: absolute;
+}
+
+.label {
+    font-size: 0.7em;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 4px;
+}
+
+.label.green {
+    color: green;
+}
+
+.label.blue {
+    color: #007bff;
+}
+
+.label.red {
+    color: red;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .welcome-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .taskstatus-wrapper {
+        width: 100%;
+    }
+
+    .status-grid {
+        justify-content: space-around;
+    }
+}

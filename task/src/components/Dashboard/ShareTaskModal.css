@@ -1,0 +1,124 @@
+/* Centered modal backdrop */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Centered modal box */
+.modal {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeInScale 0.3s ease-in-out;
+}
+
+/* Subtle entry animation */
+@keyframes fadeInScale {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.modal label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* Chip input styles */
+.chip-input-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    padding: 6px;
+    margin-bottom: 20px;
+    min-height: 42px;
+}
+
+.chip-input-wrapper input {
+    border: none;
+    flex: 1;
+    min-width: 150px;
+    padding: 6px;
+    outline: none;
+    background: transparent;
+    font-size: 0.95rem;
+}
+
+.chip {
+    display: flex;
+    align-items: center;
+    background-color: #e0f7fa;
+    color: #00796b;
+    border-radius: 20px;
+    padding: 5px 12px;
+    margin: 4px;
+    font-size: 0.88rem;
+}
+
+.remove-chip {
+    margin-left: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #00695c;
+}
+
+/* Modal action buttons */
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-share {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+.btn-share:hover {
+    background-color: #0056b3;
+}
+
+.btn-cancel {
+    background-color: #aaa;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-cancel:hover {
+    background-color: #888;
+}

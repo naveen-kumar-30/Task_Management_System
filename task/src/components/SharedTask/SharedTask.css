@@ -1,0 +1,113 @@
+.shared-task-container {
+    padding: 30px;
+    margin-top: 20px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.shared-task-container h2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.shared-section {
+    margin-bottom: 35px;
+}
+
+.shared-section h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.shared-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.2s ease;
+}
+
+.shared-card:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.shared-card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.shared-card p {
+    font-size: 15px;
+    margin: 5px 0;
+    color: #444;
+}
+
+.shared-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.shared-card li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.unshare-btn {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.unshare-btn:hover {
+    background-color: #c62828;
+}
+
+.loading-message,
+.error-message {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .shared-task-container {
+        padding: 20px;
+        margin: 15px;
+    }
+
+    .shared-section h3 {
+        font-size: 18px;
+    }
+
+    .shared-card h4 {
+        font-size: 16px;
+    }
+
+    .shared-card p,
+    .shared-card li {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,369 @@
+/* src/styles/main.css */
+@import './_variables.css';
+@import './_base.css';
+@import './authForm.css';
+@import './authIllustrations.css';
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #FF6767;
+  background-image:
+    linear-gradient(to bottom, rgba(255, 103, 103, 0.5), rgba(255, 103, 103, 0.5)),
+    url('../assets/istockphoto-1483863447-2048x2048.jpg');
+  
+  /* Background remains cover to maintain aspect ratio, scaling is handled by element clamps */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: none;
+  opacity: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden; 
+}
+
+body::before {
+  content: none;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#root::before {
+  content: none;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Navigation links - CLAMPED (1800px width / 1000px height baseline) */
+.nav-links {
+  position: absolute;
+  top: clamp(15px, calc(20 / 1000 * 100vh), 30px); /* 20px at 1000vh */
+  left: clamp(15px, calc(20 / 1800 * 100vw), 30px); /* 20px at 1800vw */
+  display: flex;
+  gap: clamp(10px, calc(15 / 1800 * 100vw), 25px); /* 15px at 1800vw */
+  z-index: 10;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: clamp(4px, calc(5 / 1000 * 100vh), 8px) clamp(8px, calc(10 / 1800 * 100vw), 15px); /* 5px vert, 10px horiz at 1800x1000 */
+  border: clamp(1px, calc(1 / 1800 * 100vw), 2px) solid white; /* 1px at 1800vw */
+  border-radius: clamp(4px, calc(5 / 1800 * 100vw), 8px); /* 5px at 1800vw */
+  font-size: clamp(13px, calc(14 / 1800 * 100vw), 18px); /* ~14px at 1800vw */
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Auth container for both login/signup forms - CLAMPED (1800px width / 1000px height baseline) */
+.auth-container {
+  display: flex;
+  background-color: #fff;
+  border-radius: clamp(10px, calc(15 / 1800 * 100vw), 25px); /* 15px at 1800vw */
+  box-shadow: 0 clamp(8px, calc(10 / 1800 * 100vw), 20px) clamp(15px, calc(20 / 1800 * 100vw), 40px) rgba(0, 0, 0, 0.1); /* 10px, 20px at 1800vw */
+  overflow: hidden;
+  
+  /* Target: 900px width at 1800px viewport, 550px min-height at 1000px viewport */
+  max-width: clamp(700px, calc(900 / 1800 * 100vw), 1200px); /* 900px at 1800vw, caps at 1200px for huge screens */
+  width: clamp(700px, calc(900 / 1800 * 100vw), 1200px); /* Ensures it scales from 900px */
+  height: auto; 
+  min-height: clamp(500px, calc(550 / 1000 * 100vh), 800px); /* 550px at 1000vh */
+  position: relative;
+  
+  /* Increased margin to avoid touching edges, also clamped */
+  margin: clamp(40px, calc(80 / 1000 * 100vh), 100px) auto; /* 80px vertical at 1000vh */
+}
+
+/* Auth form wrapper - CLAMPED (1800px width / 1000px height baseline) */
+.auth-form-wrapper,
+.auth-illustration-wrapper {
+    flex: 1; 
+    /* Target 50px vert / 60px horiz at 1800x1000 */
+    padding: clamp(25px, calc(50 / 1000 * 100vh), 70px) clamp(30px, calc(60 / 1800 * 100vw), 90px); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* This centers items along the cross-axis (horizontally for column) */
+    text-align: center; /* This centers inline content like h2, p */
+}
+
+.auth-form-wrapper h2 {
+    font-size: clamp(2em, calc(30 / 1800 * 100vw), 3.5em); /* Target 30px at 1800vw */
+    margin-bottom: clamp(15px, calc(25 / 1800 * 100vw), 35px); /* Target 25px at 1800vw */
+}
+
+.input-group {
+    margin-bottom: clamp(15px, calc(22 / 1800 * 100vw), 30px); /* Target 22px at 1800vw */
+    width: 85%; 
+    max-width: clamp(300px, calc(400 / 1800 * 100vw), 600px); /* Target 400px at 1800vw */
+    
+    /* ADDED: Explicitly center the input-group block within the flex container */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group input {
+    font-size: clamp(1em, calc(15 / 1800 * 100vw), 1.3em); /* Target 15px at 1800vw */
+    /* Target 15px vert, 25px horiz right, 50px horiz left at 1800x1000 */
+    padding: clamp(10px, calc(15 / 1000 * 100vh), 20px) 
+             clamp(15px, calc(25 / 1800 * 100vw), 35px) 
+             clamp(10px, calc(15 / 1000 * 100vh), 20px) 
+             clamp(40px, calc(50 / 1800 * 100vw), 70px);
+    width: 100%; 
+    box-sizing: border-box; 
+    /* The text inside the input will align to the left by default, after the icon padding */
+}
+
+.auth-button {
+    font-size: clamp(1.1em, calc(16 / 1800 * 100vw), 1.4em); /* Target 16px at 1800vw */
+    /* Target 15px vert, 40px horiz at 1800x1000 */
+    padding: clamp(10px, calc(15 / 1000 * 100vh), 20px) clamp(25px, calc(40 / 1800 * 100vw), 55px);
+    margin-top: clamp(15px, calc(25 / 1800 * 100vw), 35px); /* Target 25px at 1800vw */
+    width: 85%; 
+    max-width: clamp(300px, calc(400 / 1800 * 100vw), 600px); /* Target 400px at 1800vw */
+    /* ADDED: Explicitly center the button as well */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-link {
+    font-size: clamp(0.9em, calc(14 / 1800 * 100vw), 1.2em); /* Target 14px at 1800vw */
+    margin-top: clamp(15px, calc(25 / 1800 * 100vw), 35px); /* Target 25px at 1800vw */
+    /* This will be centered by text-align: center on auth-form-wrapper */
+}
+
+/* Terms Agreement Checkbox - CLAMPED (1800px width / 1000px height baseline) */
+.terms-agreement {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers content within terms-agreement itself */
+    margin-top: clamp(10px, calc(15 / 1800 * 100vw), 25px); /* Target 15px at 1800vw */
+    margin-bottom: clamp(10px, calc(15 / 1800 * 100vw), 25px); /* Target 15px at 1800vw */
+    font-size: clamp(0.85em, calc(12 / 1800 * 100vw), 1.1em); /* Target 12px at 1800vw */
+    color: #555;
+    text-align: center; /* For text wrapping within the label */
+    flex-wrap: wrap;
+    max-width: 85%; 
+    /* ADDED: Explicitly center the terms-agreement group */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.terms-agreement input[type="checkbox"] {
+  width: clamp(14px, calc(16 / 1800 * 100vw), 22px); /* Target 16px at 1800vw */
+  height: clamp(14px, calc(16 / 1000 * 100vh), 22px); /* Target 16px at 1000vh */
+  margin-right: clamp(6px, calc(8 / 1800 * 100vw), 15px); /* Target 8px at 1800vw */
+  accent-color: var(--primary-color, #FF6767);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.terms-agreement label {
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+/* Google Login Button Styles - CLAMPED (1800px width / 1000px height baseline) */
+.social-login-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(15px, calc(20 / 1800 * 100vw), 30px); /* Target 20px at 1800vw */
+  margin-bottom: clamp(10px, calc(15 / 1800 * 100vw), 25px); /* Target 15px at 1800vw */
+  /* This is already centered by justify-content: center */
+}
+
+.google-login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(10px, calc(12.5 / 1000 * 100vh), 20px) clamp(18px, calc(22 / 1800 * 100vw), 35px); /* Target 12.5px vert, 22px horiz at 1800x1000 */
+  
+  border: clamp(1px, calc(1.5 / 1800 * 100vw), 2px) solid #dadce0; /* Target 1.5px at 1800vw */
+  border-radius: clamp(4px, calc(5 / 1800 * 100vw), 8px); /* Target 5px at 1800vw */
+  background-color: white;
+  cursor: pointer;
+  font-family: Roboto, sans-serif;
+  font-size: clamp(13px, calc(15 / 1800 * 100vw), 18px); /* Target 15px at 1800vw */
+  color: #3c4043;
+  box-shadow: 0 clamp(2px, calc(3 / 1800 * 100vw), 5px) clamp(2px, calc(3 / 1800 * 100vw), 5px) 0 rgba(0, 0, 0, 0.24), 0 0 clamp(0.5px, calc(1 / 1800 * 100vw), 2px) 0 rgba(0, 0, 0, 0.24); /* Scaled shadows */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  
+  min-width: clamp(180px, calc(220 / 1800 * 100vw), 350px); /* Target 220px at 1800vw */
+  text-decoration: none;
+}
+
+.google-login-button:hover {
+  background-color: #f6f6f6;
+  box-shadow: 0 clamp(3px, calc(4 / 1800 * 100vw), 6px) clamp(3px, calc(4 / 1800 * 100vw), 6px) 0 rgba(0, 0, 0, 0.24), 0 0 clamp(1px, calc(2 / 1800 * 100vw), 3px) 0 rgba(0, 0, 0, 0.24); /* Scaled shadows */
+}
+
+.google-login-button:active {
+  background-color: #eee;
+}
+
+.google-login-button .google-icon {
+  width: clamp(20px, calc(26 / 1800 * 100vw), 35px); /* Target 26px at 1800vw */
+  height: clamp(20px, calc(26 / 1000 * 100vh), 35px); /* Target 26px at 1000vh */
+  margin-right: clamp(7px, calc(10 / 1800 * 100vw), 18px); /* Target 10px at 1800vw */
+}
+
+/* Media Queries for responsiveness - BREAKPOINTS REMAIN PIXELS */
+/* Values INSIDE the media queries are adjusted for the smaller viewport */
+@media (max-width: 850px) { /* When viewport is <= 850px */
+  .auth-container {
+    flex-direction: column; 
+    height: auto; 
+    min-height: auto; 
+    /* Adjust for vertical stacking on smaller screens - these min/max are different */
+    max-width: clamp(400px, 80vw, 600px); /* Max width becomes 80vw, with tighter px bounds */
+    width: clamp(400px, 80vw, 600px); 
+    margin: clamp(20px, 5vh, 60px) auto; /* More margin for smaller screens */
+    border-radius: clamp(10px, 2vw, 20px); 
+  }
+
+  .auth-form-wrapper, .auth-illustration-wrapper {
+      width: 100%; 
+      padding: clamp(20px, 4vw, 50px); /* Adjusted padding for stacked view */
+  }
+  .auth-form-wrapper h2 {
+    font-size: clamp(1.8em, 4vw, 2.5em); 
+    margin-bottom: clamp(10px, 2vw, 20px);
+  }
+  .input-group {
+      width: 90%; 
+      max-width: clamp(350px, 70vw, 500px); 
+      margin-left: auto; /* Ensure centering in media query too */
+      margin-right: auto;
+  }
+  .input-group input {
+      font-size: clamp(0.9em, 1.5vw, 1.2em); 
+      padding: clamp(10px, 2vh, 16px) clamp(15px, 3vw, 25px) clamp(10px, 2vh, 16px) clamp(30px, 6vw, 50px);
+  }
+  .auth-button {
+      width: 90%;
+      max-width: clamp(350px, 70vw, 500px);
+      font-size: clamp(1em, 1.8vw, 1.3em);
+      padding: clamp(10px, 2vh, 16px) clamp(20px, 4vw, 35px);
+      margin-left: auto; /* Ensure centering in media query too */
+      margin-right: auto;
+  }
+  .auth-link {
+    font-size: clamp(0.8em, 1.2vw, 1em);
+  }
+  .terms-agreement {
+    font-size: clamp(0.75em, 1vw, 0.9em);
+    max-width: 90%;
+    margin-left: auto; /* Ensure centering in media query too */
+    margin-right: auto;
+  }
+  .terms-agreement input[type="checkbox"] {
+    width: clamp(14px, 1.8vw, 20px);
+    height: clamp(14px, 1.8vw, 20px);
+    margin-right: clamp(6px, 0.8vw, 10px);
+  }
+  .social-login-icons {
+    margin-top: clamp(15px, 2.5vw, 25px);
+    margin-bottom: clamp(10px, 1.5vw, 20px);
+  }
+  .google-login-button {
+    font-size: clamp(0.9em, 1.5vw, 1.2em);
+    padding: clamp(8px, 1.5vh, 14px) clamp(15px, 2.5vw, 25px);
+    min-width: clamp(150px, 25vw, 250px);
+  }
+  .google-login-button .google-icon {
+    width: clamp(18px, 2.5vw, 28px);
+    height: clamp(18px, 2.5vw, 28px);
+    margin-right: clamp(6px, 1vw, 10px);
+  }
+}
+
+@media (max-width: 480px) { /* Even smaller screens */
+  .auth-container {
+    width: clamp(300px, 90vw, 450px); 
+    max-width: clamp(300px, 90vw, 450px);
+    margin: clamp(15px, 4vh, 40px) auto;
+    border-radius: clamp(8px, 2.5vw, 15px); 
+  }
+  .auth-form-wrapper, .auth-illustration-wrapper {
+      padding: clamp(15px, 5vw, 30px); 
+  }
+  .auth-form-wrapper h2 {
+    font-size: clamp(1.5em, 5vw, 2em);
+    margin-bottom: clamp(8px, 2vw, 15px);
+  }
+  .input-group {
+      width: 95%;
+      max-width: 100%;
+      margin-left: auto; /* Ensure centering in media query too */
+      margin-right: auto;
+  }
+  .input-group input {
+    font-size: clamp(0.85em, 2vw, 1.1em);
+    padding: clamp(8px, 2.5vh, 14px) clamp(10px, 4vw, 20px) clamp(8px, 2.5vh, 14px) clamp(25px, 8vw, 40px);
+  }
+  .auth-button {
+    width: 95%;
+    max-width: 100%;
+    font-size: clamp(0.9em, 2.2vw, 1.2em);
+    padding: clamp(8px, 2.5vh, 14px) clamp(15px, 5vw, 30px);
+    margin-left: auto; /* Ensure centering in media query too */
+    margin-right: auto;
+  }
+  .auth-link {
+    font-size: clamp(0.75em, 1.8vw, 0.9em);
+  }
+  .terms-agreement {
+    font-size: clamp(0.7em, 1.5vw, 0.85em);
+    max-width: 95%;
+    margin-left: auto; /* Ensure centering in media query too */
+    margin-right: auto;
+  }
+  .terms-agreement input[type="checkbox"] {
+    width: clamp(12px, 2.2vw, 18px);
+    height: clamp(12px, 2.2vw, 18px);
+    margin-right: clamp(5px, 1vw, 8px);
+  }
+  .social-login-icons {
+    margin-top: clamp(10px, 3vw, 20px);
+    margin-bottom: clamp(8px, 2vw, 15px);
+  }
+  .google-login-button {
+    font-size: clamp(0.8em, 1.8vw, 1.1em);
+    padding: clamp(6px, 1.8vh, 12px) clamp(10px, 3.5vw, 20px);
+    min-width: clamp(120px, 30vw, 200px);
+  }
+  .google-login-button .google-icon {
+    width: clamp(15px, 3vw, 25px);
+    height: clamp(15px, 3vw, 25px);
+    margin-right: clamp(4px, 1.2vw, 8px);
+  }
+}

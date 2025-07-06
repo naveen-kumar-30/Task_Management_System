@@ -1,0 +1,20 @@
+/* src/components/Dashboard/Dashboard11.css */
+
+.dashboard-container {
+    padding: 25px 30px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}

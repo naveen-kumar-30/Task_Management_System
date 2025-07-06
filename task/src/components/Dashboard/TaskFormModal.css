@@ -1,0 +1,91 @@
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Task Form */
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-form h3 {
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+/* Inputs, Selects, Textareas */
+.task-form input,
+.task-form select,
+.task-form textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+.task-form button {
+    background: #ff5e5e;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.task-form button:hover {
+    background: #e94a4a;
+}
+
+/* Cancel Button */
+.cancel-btn {
+    background-color: #ccc;
+    color: black;
+}
+
+/* Button Layout */
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 15px;
+        max-width: 95%;
+    }
+}

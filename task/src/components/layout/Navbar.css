@@ -1,0 +1,176 @@
+/* Navbar wrapper */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    right: 0;
+    height: 60px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    z-index: 100;
+}
+
+/* Left section of navbar */
+.navbar-left {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wrapper to center search and filter */
+.navbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0 auto;
+}
+
+/* Search bar styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    padding: 6px 8px;
+    outline: none;
+    width: 180px;
+    font-size: 14px;
+}
+
+.search-btn {
+    border: none;
+    background-color: #ff5e5e;
+    color: white;
+    padding: 6px 10px;
+    margin-left: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #e14e4e;
+}
+
+/* Dropdown for filters */
+.filter-dropdown {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Right section: icons and time */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Icon buttons (notifications, calendar) */
+.icon-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Hidden native calendar input */
+.hidden-calendar {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    width: 0;
+}
+
+/* Static width for stable time display */
+.current-date {
+    font-weight: 500;
+    font-size: 14px;
+    font-family: monospace;
+    text-align: right;
+    white-space: nowrap;
+    width: 240px;
+    overflow: hidden;
+}
+
+/* Optional calendar popup styling */
+.calendar-picker {
+    position: absolute;
+    top: 65px;
+    right: 140px;
+    z-index: 200;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.95em;
+}
+
+/* ------------------ Responsive Design ------------------ */
+@media (max-width: 768px) {
+    .navbar {
+        left: 0;
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .navbar-left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navbar-controls {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .search-bar input,
+    .filter-dropdown {
+        width: 100%;
+    }
+
+    .navbar-right {
+        margin-top: 10px;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .search-bar input,
+    .filter-dropdown {
+        width: 100%;
+    }
+
+    .current-date {
+        font-size: 12px;
+        width: 180px;
+    }
+}
