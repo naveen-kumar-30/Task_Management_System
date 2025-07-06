@@ -22,7 +22,7 @@ function TaskList() {
   const [error, setError] = useState(null);
   const [sortOption, setSortOption] = useState("date-desc");
 
-  const API = "http://localhost:5000/api";
+  const API = "https://task-management-system-jyrv.onrender.com/api";
 
   useEffect(() => {
     fetchTasks();

@@ -10,7 +10,7 @@ function Dashboard({ searchTerm, filter }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = "http://localhost:5000/api";
+  const API_BASE_URL = "https://task-management-system-jyrv.onrender.com/api";
 
   useEffect(() => {
     const storedName = localStorage.getItem('userName');

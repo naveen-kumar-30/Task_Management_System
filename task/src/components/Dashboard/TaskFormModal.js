@@ -22,7 +22,7 @@ function TaskFormModal({ onClose, onSave, initialData = null }) {
         image: null, // prevent sending string during form submission
       });
       if (initialData.image) {
-        setImagePreviewUrl(`http://localhost:5000${initialData.image}`);
+        setImagePreviewUrl(`https://task-management-system-jyrv.onrender.com${initialData.image}`);
       }
     }
   }, [initialData]);

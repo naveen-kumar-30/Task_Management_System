@@ -17,7 +17,7 @@ const SocialLoginIcons = () => {
     }
 
     try {
-      const backendResponse = await fetch('http://localhost:5000/api/auth/google', {
+      const backendResponse = await fetch('https://task-management-system-jyrv.onrender.com/api/auth/google', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
