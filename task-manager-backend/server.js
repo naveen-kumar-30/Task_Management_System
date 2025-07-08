@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+const cors = require('cors'); // Make sure cors is installed (npm install cors)
 const path = require('path');
 
 const taskRoutes = require('./routes/taskRoutes');
@@ -12,7 +12,25 @@ const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // Middleware
-app.use(cors());
+// Configure CORS to only allow your frontend origin
+const allowedOrigins = [
+  'https://task-management-system-frontend-2y4y.onrender.com'
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Explicitly allow common HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
+  credentials: true // Crucial if you're sending cookies or authorization headers (like JWTs)
+};
+
+app.use(cors(corsOptions)); // Apply the custom CORS options
 app.use(express.json());
 
 // Serve static files from the 'uploads' directory
